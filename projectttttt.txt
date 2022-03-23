@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grade Calculating System</title>
+  </head>
+  <body id="display">
+    <form name="myform" onsubmit="calculate()">
+      Maths: <input type="number" name="maths" id="" /> <br />
+      Physics: <input type="number" name="physics" id="" /><br />
+      Chemistry: <input type="number" name="chemistry" id="" /><br />
+      Nepali: <input type="number" name="nepali" id="" /><br />
+      English: <input type="number" name="english" id="" /> <br />
+      Computer: <input type="number" name="computer" id="" /><br />
+      <button type="submit">Calculate</button>
+    </form>
+    <div></div>
+    <script>
+      function calculate() {
+        let a = document.myform.maths.value;
+        let b = document.myform.physics.value;
+        let c = document.myform.chemistry.value;
+        let d = document.myform.nepali.value;
+        let e = document.myform.english.value;
+        let f = document.myform.computer.value;
+
+        if (a == "" || b == "" || c == "" || d == "" || e == "" || f == "") {
+          alert("Marks can't be Null");
+        } else if (
+          a > 100 ||
+          b > 100 ||
+          c > 100 ||
+          d > 100 ||
+          e > 100 ||
+          f > 100
+        ) {
+          alert("Marks can't be more than 100");
+        } else {
+          let total =
+            parseInt(a) +
+            parseInt(b) +
+            parseInt(c) +
+            parseInt(d) +
+            parseInt(e) +
+            parseInt(f);
+          document.getElementById(
+            "display"
+          ).innerHTML = `<form name="myform" onsubmit="calculate()">
+      Maths: <input type="number" name="maths" id="" /> <br />
+      Physics: <input type="number" name="physics" id="" /><br />
+      Chemistry: <input type="number" name="chemistry" id="" /><br />
+      Nepali: <input type="number" name="nepali" id="" /><br />
+      English: <input type="number" name="english" id="" /> <br />
+      Computer: <input type="number" name="computer" id="" /><br />
+      <button type="submit">Calculate</button>
+    </form>
+    <div >Total Marks: ${total} <br>Percentage: ${(total / 600) * 100}%}</div>`;
+        }
+        console.log(total);
+        return false;
+      }
+    </script>
+  </body>
+</html>
